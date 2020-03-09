@@ -3,7 +3,7 @@ export function request(config){
 
     //创建axios实例
     const inst=axios.create({
-        baseURL:'http://123.207.32.32:8000',
+        baseURL:'http://123.207.32.32:8000/api/wh',
         timeout:5000,
     })
 

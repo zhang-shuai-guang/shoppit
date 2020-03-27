@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive exclude="XiangQing">
+      <router-view/>
+    </keep-alive>
     <main-tab-bar/>
   </div>
 </template>

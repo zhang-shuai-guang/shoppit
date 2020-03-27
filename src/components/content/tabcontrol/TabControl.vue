@@ -17,8 +17,8 @@ export default {
   props:{
     list:Array,
     default(){
-        return []
-      } 
+      return []
+    } 
   },
   data(){
     return{
@@ -39,7 +39,7 @@ export default {
   display: flex;
   text-align: center;
   background: #ffffff;
-
+  font-size: 16px;
 }
 .control-item{
   flex: 1;

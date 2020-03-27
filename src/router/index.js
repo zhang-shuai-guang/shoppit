@@ -1,15 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CateGory from '../views/category/CateGory.vue'
-import Cart from '../views/cart/Cart.vue'
-import My from '../views/my/My.vue'
-import ProFile from '../views/profile/ProFile.vue'
+const CateGory = ()=>import('views/category/CateGory.vue')
+const Cart = ()=>import('views/cart/Cart.vue')
+const My = ()=>import('views/my/My.vue')
+const ProFile = ()=>import('views/profile/ProFile.vue')
+const XiangQing = ()=>import('views/xiangqing/XiangQing')
 Vue.use(VueRouter)
-// const originalPush = VueRouter.prototype.push
-// VueRouter.prototype.push = function push(location) {
-//   return originalPush.call(this, location).catch(err => err)
-// }
- 
+
 // const originalPush = VueRouter.prototype.push
 // VueRouter.prototype.push = function push(location, onResolve, onReject) {
 //   if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
@@ -51,7 +48,14 @@ const routes = [
       title:"更多"
     },
     component: ProFile,
-  },
+  },{
+    path:'/xainging/:id',
+    name:'XiangQing',
+    meta:{
+      title:"更多"
+    },
+    component:XiangQing
+  }
 ]
 const router = new VueRouter({
   mode: 'history',
@@ -59,7 +63,9 @@ const router = new VueRouter({
   routes
 })
 router.beforeEach((to,from,next)=>{
-  document.title=to.matched[0].meta.title  
+  // document.title=to.matched[0].meta.title 
+  console.log(to);
+   
   next();
 })
 export default router

@@ -1,6 +1,6 @@
 <template>
-  <div class="good-item" >
-    <img :src="goodItem.show.img" alt="">
+  <div class="good-item" @click="tiao">
+    <img v-lazy="showimg" alt="" @load="load">
     <div class="goods-info">
       <p>{{goodItem.title}}</p>
       <span class="price">¥{{goodItem.price}}</span>
@@ -18,6 +18,19 @@ export default {
       default(){
         return []
       }
+    }
+  },
+  computed:{
+    showimg(){
+      return this.goodItem.image || this.goodItem.img || this.goodItem.show.img 
+    }
+  },
+  methods:{
+    load(){
+      this.$bus.$emit('itemImgLoad')
+    },
+    tiao(){
+      this.$router.push('/xainging/'+this.goodItem.iid)
     }
   }
 }
